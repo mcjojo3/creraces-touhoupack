@@ -1,0 +1,114 @@
+{
+    "creraces:name": "ability.touhou.kyuu.name",
+    "creraces:description": "ability.touhou.kyuu.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:textures/item/fire_charge.png",
+    "creraces:cooldown": 400,
+    "creraces:cost": 150,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:actions": [
+        {
+            "type": "creraces:conditional",
+            "condition": { "type": "creraces:sneaking" },
+            "if_true": [
+                { "type": "creraces:break_blocks", "position": { "from": "look", "range": 24 }, "radius": 1 },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:explosion",
+                    "count": 3,
+                    "spread": 1,
+                    "position": { "from": "look", "range": 24, "x": 0.5, "y": 0.5, "z": 0.5 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.generic.explode",
+                    "volume": 1,
+                    "pitch": 1.3,
+                    "position": { "from": "look", "range": 24 }
+                }
+            ],
+            "if_false": [
+                {
+                    "type": "creraces:raycast",
+                    "range": 24,
+                    "fail_if_empty": true,
+                    "actions": [
+                        {
+                            "type": "creraces:spawn_particles",
+                            "particle": "minecraft:enchanted_hit",
+                            "count": 20,
+                            "spread": 0.4,
+                            "position": { "from": "target", "y": 1 }
+                        },
+                        {
+                            "type": "creraces:play_sound",
+                            "sound": "minecraft:block.amethyst_block.resonate",
+                            "volume": 1,
+                            "pitch": 1.6,
+                            "position": { "from": "target" }
+                        },
+                        {
+                            "type": "creraces:delay",
+                            "duration": 20,
+                            "actions": [
+                                {
+                                    "type": "creraces:conditional",
+                                    "condition": {
+                                        "type": "creraces:compare",
+                                        "value": { "scales_with": "resource:health", "entity": "target" },
+                                        "to": {
+                                            "base": 0,
+                                            "scales_with": "minecraft:generic.max_health",
+                                            "factor": 0.3,
+                                            "entity": "target"
+                                        },
+                                        "operator": "<="
+                                    },
+                                    "if_true": [
+                                        {
+                                            "type": "creraces:damage",
+                                            "amount": 1000,
+                                            "damage_type": "minecraft:magic"
+                                        }
+                                    ],
+                                    "if_false": [
+                                        {
+                                            "type": "creraces:damage",
+                                            "amount": {
+                                                "base": 0,
+                                                "scales_with": "minecraft:generic.max_health",
+                                                "factor": 0.5,
+                                                "entity": "target"
+                                            },
+                                            "damage_type": "minecraft:magic"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "creraces:spawn_particles",
+                                    "particle": "minecraft:explosion",
+                                    "count": 1,
+                                    "position": { "from": "target", "y": 1 }
+                                },
+                                {
+                                    "type": "creraces:spawn_particles",
+                                    "particle": "minecraft:crimson_spore",
+                                    "count": 30,
+                                    "spread": 0.6,
+                                    "position": { "from": "target", "y": 1 }
+                                },
+                                {
+                                    "type": "creraces:play_sound",
+                                    "sound": "minecraft:entity.generic.explode",
+                                    "volume": 1,
+                                    "pitch": 1.5,
+                                    "position": { "from": "target" }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

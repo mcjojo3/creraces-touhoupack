@@ -1,0 +1,83 @@
+{
+    "creraces:name": "ability.touhou.kagome_kagome.name",
+    "creraces:description": "ability.touhou.kagome_kagome.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:textures/item/chain.png",
+    "creraces:cooldown": 400,
+    "creraces:cost": 100,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:actions": [
+        {
+            "type": "creraces:aoe",
+            "radius": 10,
+            "targets": ["enemies"],
+            "actions": [
+                {
+                    "type": "creraces:apply_effect",
+                    "effect": "creraces:rooted",
+                    "duration": 80,
+                    "amplifier": 0
+                },
+                {
+                    "type": "creraces:apply_effect",
+                    "effect": "minecraft:slowness",
+                    "duration": 80,
+                    "amplifier": 2
+                },
+                {
+                    "type": "creraces:tether",
+                    "duration": 80,
+                    "interval": 20,
+                    "range": 16,
+                    "width": 0.3,
+                    "actions": [
+                        {
+                            "type": "creraces:spawn_particles",
+                            "particle": "minecraft:enchanted_hit",
+                            "count": 6,
+                            "spread": 0.3,
+                            "position": { "from": "target", "y": 1 }
+                        }
+                    ],
+                    "on_complete": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 12, "scales_with": "creraces:ability_power", "factor": 0.1 },
+                            "damage_type": "minecraft:magic"
+                        },
+                        {
+                            "type": "creraces:spawn_particles",
+                            "particle": "minecraft:crimson_spore",
+                            "count": 20,
+                            "spread": 0.5,
+                            "position": { "from": "target", "y": 1 }
+                        },
+                        {
+                            "type": "creraces:play_sound",
+                            "sound": "minecraft:block.chain.break",
+                            "volume": 1,
+                            "pitch": 0.8,
+                            "position": { "from": "target" }
+                        }
+                    ]
+                }
+            ],
+            "fail_if_empty": true
+        },
+        {
+            "type": "creraces:spawn_particles",
+            "particle": "minecraft:end_rod",
+            "count": 60,
+            "shape": "circle",
+            "radius": 10,
+            "points": 60,
+            "position": { "from": "self", "y": 1 }
+        },
+        {
+            "type": "creraces:play_sound",
+            "sound": "minecraft:block.note_block.chime",
+            "volume": 1,
+            "pitch": 0.7
+        }
+    ]
+}

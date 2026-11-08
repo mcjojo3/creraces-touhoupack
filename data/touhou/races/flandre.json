@@ -1,0 +1,310 @@
+{
+    "creraces:name": "race.touhou.flandre.name",
+    "creraces:description": "race.touhou.flandre.description",
+    "creraces:state": "experimental",
+    "creraces:index": 100,
+    "creraces:difficulty": 4,
+    "creraces:icon": "touhou:textures/screens/flandre_icon.png",
+    "creraces:portrait": "touhou:textures/screens/flandre_portrait.png",
+    "creraces:splash": "touhou:textures/screens/flandre_splash.png",
+    "creraces:name_texture": "touhou:textures/screens/flandre_text.png",
+    "creraces:bg_texture": "touhou:textures/screens/touhou_bg.png",
+    "creraces:resource_type": "mana",
+    "creraces:gstate": "female",
+    "creraces:scale": { "base": 1, "height": 0.85, "width": 0.85 },
+    "creraces:is_undead": true,
+    "creraces:burns_in_sunlight": true,
+    "creraces:regeneration_multiplier": 2,
+    "creraces:allowed_food_types": ["meat"],
+    "creraces:immune_to_damage": ["minecraft:fall"],
+    "creraces:hated_by_entities": ["minecraft:villager", "minecraft:iron_golem"],
+    "creraces:starting_abilities": [
+        "touhou:kyuu",
+        "touhou:laevateinn",
+        "touhou:kagome_kagome",
+        "touhou:bat_form"
+    ],
+    "creraces:overlay_bars": [
+        { "source": "state:touhou:madness", "max": 100, "color": "#CC0033", "name": "gui.touhou.bar.madness" },
+        {
+            "source": "cooldown:touhou:frenzy",
+            "max": 400,
+            "color": "#FF3355",
+            "name": "gui.touhou.bar.frenzy"
+        }
+    ],
+    "scarlet_devil": [
+        {
+            "id": "flandre_health",
+            "type": "creraces:attribute_modifier",
+            "attribute": "minecraft:generic.max_health",
+            "value": 10
+        },
+        {
+            "id": "flandre_mana_regen",
+            "type": "creraces:attribute_modifier",
+            "attribute": "creraces:mana_regeneration",
+            "value": 0.2
+        },
+        {
+            "id": "flandre_armor_pierce",
+            "type": "creraces:attribute_modifier",
+            "attribute": "creraces:armor_pierce",
+            "value": 10
+        },
+        {
+            "id": "flandre_armor_shred",
+            "type": "creraces:attribute_modifier",
+            "attribute": "creraces:armor_shred",
+            "value": 25
+        }
+    ],
+    "vampire": [
+        {
+            "id": "flandre_night_vision",
+            "type": "creraces:keep_effect",
+            "effect": "minecraft:night_vision",
+            "visible": false
+        },
+        {
+            "id": "flandre_running_water",
+            "type": "creraces:on_tick",
+            "interval": 20,
+            "condition": {
+                "type": "creraces:or",
+                "conditions": [{ "type": "creraces:exposed_to_rain" }, { "type": "creraces:in_water" }]
+            },
+            "actions": [
+                {
+                    "type": "creraces:apply_effect",
+                    "effect": "minecraft:weakness",
+                    "duration": 40,
+                    "amplifier": 1
+                },
+                {
+                    "type": "creraces:apply_effect",
+                    "effect": "minecraft:slowness",
+                    "duration": 40,
+                    "amplifier": 0
+                }
+            ]
+        },
+        {
+            "type": "creraces:on_hit",
+            "actions": [
+                {
+                    "type": "creraces:heal",
+                    "amount": { "base": 0, "scales_with": "event:damage", "factor": 0.15 },
+                    "entity": "self"
+                },
+                {
+                    "type": "creraces:modify_value",
+                    "resource": "mana",
+                    "operation": "add",
+                    "value": { "base": 4, "scales_with": "event:damage", "factor": 1.5 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:on_kill",
+            "actions": [
+                { "type": "creraces:modify_value", "resource": "food", "operation": "add", "value": 4 },
+                { "type": "creraces:modify_value", "resource": "saturation", "operation": "add", "value": 4 }
+            ]
+        }
+    ],
+    "crystal_wings": [
+        {
+            "id": "flandre_wings",
+            "type": "creraces:flight",
+            "resource": "mana",
+            "drain_rate": { "base": 1, "scales_with": "flag:morphed", "factor": -1 },
+            "hover_drain_rate": 0,
+            "blocked_by_effects": ["creraces:broken_wings"],
+            "condition": {
+                "type": "creraces:not",
+                "condition": {
+                    "type": "creraces:or",
+                    "conditions": [{ "type": "creraces:exposed_to_rain" }, { "type": "creraces:in_water" }]
+                }
+            }
+        }
+    ],
+    "madness": [
+        {
+            "type": "creraces:on_hit",
+            "actions": [
+                {
+                    "type": "creraces:conditional",
+                    "condition": {
+                        "type": "creraces:compare",
+                        "value": "cooldown:touhou:frenzy",
+                        "to": 0,
+                        "operator": "<="
+                    },
+                    "if_true": [
+                        {
+                            "type": "creraces:modify_value",
+                            "state": "touhou:madness",
+                            "value": { "base": 3, "scales_with": "state:touhou:madness", "max": 100 }
+                        },
+                        {
+                            "type": "creraces:conditional",
+                            "condition": {
+                                "type": "creraces:compare",
+                                "value": "state:touhou:madness",
+                                "to": 100,
+                                "operator": ">="
+                            },
+                            "if_true": [
+                                { "type": "creraces:modify_value", "state": "touhou:madness", "value": 0 },
+                                { "type": "creraces:modify_value", "cooldown": "touhou:frenzy", "value": 400 },
+                                {
+                                    "type": "creraces:play_sound",
+                                    "sound": "minecraft:entity.wither.ambient",
+                                    "volume": 0.8,
+                                    "pitch": 1.6,
+                                    "position": { "from": "self" }
+                                },
+                                {
+                                    "type": "creraces:spawn_particles",
+                                    "particle": "minecraft:crimson_spore",
+                                    "count": 40,
+                                    "spread": 0.6,
+                                    "position": { "from": "self", "y": 1 }
+                                },
+                                {
+                                    "type": "creraces:message",
+                                    "text": "msg.touhou.flandre.frenzy",
+                                    "actionbar": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "creraces:on_kill",
+            "actions": [
+                {
+                    "type": "creraces:conditional",
+                    "condition": {
+                        "type": "creraces:compare",
+                        "value": "cooldown:touhou:frenzy",
+                        "to": 0,
+                        "operator": "<="
+                    },
+                    "if_true": [
+                        {
+                            "type": "creraces:modify_value",
+                            "state": "touhou:madness",
+                            "value": { "base": 10, "scales_with": "state:touhou:madness", "max": 100 }
+                        },
+                        {
+                            "type": "creraces:conditional",
+                            "condition": {
+                                "type": "creraces:compare",
+                                "value": "state:touhou:madness",
+                                "to": 100,
+                                "operator": ">="
+                            },
+                            "if_true": [
+                                { "type": "creraces:modify_value", "state": "touhou:madness", "value": 0 },
+                                { "type": "creraces:modify_value", "cooldown": "touhou:frenzy", "value": 400 },
+                                {
+                                    "type": "creraces:play_sound",
+                                    "sound": "minecraft:entity.wither.ambient",
+                                    "volume": 0.8,
+                                    "pitch": 1.6,
+                                    "position": { "from": "self" }
+                                },
+                                {
+                                    "type": "creraces:spawn_particles",
+                                    "particle": "minecraft:crimson_spore",
+                                    "count": 40,
+                                    "spread": 0.6,
+                                    "position": { "from": "self", "y": 1 }
+                                },
+                                {
+                                    "type": "creraces:message",
+                                    "text": "msg.touhou.flandre.frenzy",
+                                    "actionbar": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "flandre_madness_fades",
+            "type": "creraces:on_tick",
+            "interval": 40,
+            "condition": {
+                "type": "creraces:compare",
+                "value": "cooldown:touhou:frenzy",
+                "to": 0,
+                "operator": "<="
+            },
+            "actions": [
+                {
+                    "type": "creraces:modify_value",
+                    "state": "touhou:madness",
+                    "value": { "base": -1, "scales_with": "state:touhou:madness", "min": 0 }
+                }
+            ]
+        },
+        {
+            "id": "flandre_frenzy_damage",
+            "type": "creraces:attribute_modifier",
+            "attribute": "minecraft:generic.attack_damage",
+            "value": 6,
+            "condition": {
+                "type": "creraces:compare",
+                "value": "cooldown:touhou:frenzy",
+                "to": 0,
+                "operator": ">"
+            }
+        },
+        {
+            "id": "flandre_frenzy_speed",
+            "type": "creraces:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.04,
+            "condition": {
+                "type": "creraces:compare",
+                "value": "cooldown:touhou:frenzy",
+                "to": 0,
+                "operator": ">"
+            }
+        },
+        {
+            "id": "flandre_frenzy_attack_speed",
+            "type": "creraces:attribute_modifier",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": 1,
+            "condition": {
+                "type": "creraces:compare",
+                "value": "cooldown:touhou:frenzy",
+                "to": 0,
+                "operator": ">"
+            }
+        },
+        {
+            "type": "creraces:damage_multiplier",
+            "multiplier": 1.25,
+            "condition": {
+                "type": "creraces:compare",
+                "value": "cooldown:touhou:frenzy",
+                "to": 0,
+                "operator": ">"
+            }
+        }
+    ],
+    "cosmetics": [{ "type": "creraces:addon", "addon": "twilight_lib:wings_flandre" }],
+    "creraces:name_tex_x": 45,
+    "creraces:name_tex_y": -40,
+    "creraces:name_tex_w": 84,
+    "creraces:name_tex_h": 26
+}

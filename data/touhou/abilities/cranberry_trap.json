@@ -1,0 +1,262 @@
+{
+    "creraces:name": "ability.touhou.cranberry_trap.name",
+    "creraces:description": "ability.touhou.cranberry_trap.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:textures/item/sweet_berries.png",
+    "creraces:cooldown": 400,
+    "creraces:cost": 120,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:actions": [
+        {
+            "type": "creraces:aoe",
+            "radius": 9,
+            "targets": ["enemies"],
+            "actions": [
+                {
+                    "type": "creraces:damage",
+                    "amount": { "base": 2, "scales_with": "creraces:ability_power", "factor": 0.02 }
+                },
+                {
+                    "type": "creraces:apply_effect",
+                    "effect": "minecraft:slowness",
+                    "duration": 30,
+                    "amplifier": 2
+                }
+            ],
+            "shape": "circle",
+            "height": 4
+        },
+        {
+            "type": "creraces:spawn_particles",
+            "particle": "minecraft:crimson_spore",
+            "count": 54,
+            "shape": "circle",
+            "radius": 9,
+            "points": 54,
+            "position": { "from": "self", "y": 0.2 }
+        },
+        {
+            "type": "creraces:spawn_particles",
+            "particle": "minecraft:enchanted_hit",
+            "count": 48,
+            "shape": "circle",
+            "radius": 8,
+            "points": 48,
+            "position": { "from": "self", "y": 0.2 }
+        },
+        {
+            "type": "creraces:play_sound",
+            "sound": "minecraft:block.amethyst_block.chime",
+            "volume": 0.7,
+            "pitch": 1.2
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 10,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 7.5,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 2, "scales_with": "creraces:ability_power", "factor": 0.02 }
+                        },
+                        {
+                            "type": "creraces:apply_effect",
+                            "effect": "minecraft:slowness",
+                            "duration": 30,
+                            "amplifier": 2
+                        }
+                    ],
+                    "shape": "circle",
+                    "height": 4
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 45,
+                    "shape": "circle",
+                    "radius": 7.5,
+                    "points": 45,
+                    "position": { "from": "self", "y": 0.2 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 39,
+                    "shape": "circle",
+                    "radius": 6.5,
+                    "points": 39,
+                    "position": { "from": "self", "y": 0.2 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:block.amethyst_block.chime",
+                    "volume": 0.7,
+                    "pitch": 1.35
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 20,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 6,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 2, "scales_with": "creraces:ability_power", "factor": 0.02 }
+                        },
+                        {
+                            "type": "creraces:apply_effect",
+                            "effect": "minecraft:slowness",
+                            "duration": 30,
+                            "amplifier": 2
+                        }
+                    ],
+                    "shape": "circle",
+                    "height": 4
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 36,
+                    "shape": "circle",
+                    "radius": 6,
+                    "points": 36,
+                    "position": { "from": "self", "y": 0.2 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 30,
+                    "shape": "circle",
+                    "radius": 5,
+                    "points": 30,
+                    "position": { "from": "self", "y": 0.2 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:block.amethyst_block.chime",
+                    "volume": 0.7,
+                    "pitch": 1.5
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 30,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 4.5,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 2, "scales_with": "creraces:ability_power", "factor": 0.02 }
+                        },
+                        {
+                            "type": "creraces:apply_effect",
+                            "effect": "minecraft:slowness",
+                            "duration": 30,
+                            "amplifier": 2
+                        }
+                    ],
+                    "shape": "circle",
+                    "height": 4
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 27,
+                    "shape": "circle",
+                    "radius": 4.5,
+                    "points": 27,
+                    "position": { "from": "self", "y": 0.2 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 21,
+                    "shape": "circle",
+                    "radius": 3.5,
+                    "points": 21,
+                    "position": { "from": "self", "y": 0.2 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:block.amethyst_block.chime",
+                    "volume": 0.7,
+                    "pitch": 1.65
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 40,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 10,
+                    "targets": ["enemies"],
+                    "actions": [
+                        { "type": "creraces:apply_velocity", "mode": "pull", "strength": 1.5, "y": 0.2 }
+                    ],
+                    "shape": "circle",
+                    "height": 4
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:block.chain.place",
+                    "volume": 1,
+                    "pitch": 0.6
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 50,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 3.5,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 14, "scales_with": "creraces:ability_power", "factor": 0.15 },
+                            "damage_type": "minecraft:magic"
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:explosion",
+                    "count": 2,
+                    "spread": 0.6,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 60,
+                    "shape": "sphere",
+                    "radius": 3,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.generic.explode",
+                    "volume": 1,
+                    "pitch": 1.2
+                }
+            ]
+        }
+    ]
+}

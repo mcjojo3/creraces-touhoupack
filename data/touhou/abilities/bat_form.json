@@ -1,0 +1,73 @@
+{
+    "creraces:name": "ability.touhou.bat_form.name",
+    "creraces:description": "ability.touhou.bat_form.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:bat_spawn_egg",
+    "creraces:cooldown": 40,
+    "creraces:cost": 20,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:copied_by_clones": false,
+    "creraces:actions": [
+        {
+            "type": "creraces:conditional",
+            "condition": { "type": "creraces:flag", "flag": "morphed", "value": false },
+            "if_true": [
+                { "type": "creraces:morph", "entity_type": "minecraft:bat" },
+                {
+                    "type": "creraces:attribute_modifier",
+                    "attribute": "minecraft:generic.movement_speed",
+                    "id": "bat_form_speed",
+                    "value": 0.05
+                },
+                {
+                    "type": "creraces:attribute_modifier",
+                    "attribute": "minecraft:generic.attack_damage",
+                    "id": "bat_form_no_damage",
+                    "value": -100
+                },
+                {
+                    "type": "creraces:change_size",
+                    "scale": {
+                        "base": 1,
+                        "height": 0.85,
+                        "width": 0.85,
+                        "hitbox_height": 0.35,
+                        "eye_height": 0.35
+                    }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:large_smoke",
+                    "count": 20,
+                    "spread": 0.4,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.bat.takeoff",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ],
+            "if_false": [
+                { "type": "creraces:morph", "entity_type": "" },
+                { "type": "creraces:remove_modifier", "modifier": "bat_form_speed" },
+                { "type": "creraces:remove_modifier", "modifier": "bat_form_no_damage" },
+                { "type": "creraces:change_size", "scale": { "base": 1, "height": 0.85, "width": 0.85 } },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:large_smoke",
+                    "count": 20,
+                    "spread": 0.4,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.bat.death",
+                    "volume": 0.6,
+                    "pitch": 1.4
+                }
+            ]
+        }
+    ]
+}

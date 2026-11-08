@@ -1,0 +1,13 @@
+{
+  "ability": "touhou:and_then_will_there_be_none",
+  "level": 1,
+  "pattern": [
+    { "q":  0, "r":  0, "essence": "void" },
+    { "q":  0, "r": -1, "essence": "soul" },
+    { "q":  0, "r":  1, "essence": "soul" },
+    { "q":  1, "r": -1, "essence": "death" },
+    { "q": -1, "r":  1, "essence": "death" },
+    { "q":  1, "r":  0, "essence": "dark" },
+    { "q": -1, "r":  0, "essence": "dark" }
+  ]
+}

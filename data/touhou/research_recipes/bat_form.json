@@ -1,0 +1,11 @@
+{
+  "ability": "touhou:bat_form",
+  "level": 1,
+  "pattern": [
+    { "q":  0, "r":  0, "essence": "dark" },
+    { "q": -1, "r":  0, "essence": "air" },
+    { "q":  1, "r":  0, "essence": "air" },
+    { "q": -2, "r":  1, "essence": "air" },
+    { "q":  2, "r": -1, "essence": "air" }
+  ]
+}

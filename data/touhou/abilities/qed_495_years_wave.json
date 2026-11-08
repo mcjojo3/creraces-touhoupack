@@ -1,0 +1,118 @@
+{
+    "creraces:name": "ability.touhou.qed_495_years_wave.name",
+    "creraces:description": "ability.touhou.qed_495_years_wave.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:textures/item/clock_00.png",
+    "creraces:cooldown": 1800,
+    "creraces:cost": 300,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:actions": [
+        {
+            "type": "creraces:aoe",
+            "radius": 6,
+            "targets": ["enemies"],
+            "actions": [
+                {
+                    "type": "creraces:damage",
+                    "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                },
+                { "type": "creraces:apply_velocity", "mode": "push", "strength": 1.2, "y": 0.3 }
+            ],
+            "shape": "circle",
+            "height": 4
+        },
+        {
+            "type": "creraces:spawn_particles",
+            "particle": "minecraft:end_rod",
+            "count": 36,
+            "shape": "circle",
+            "radius": 6,
+            "points": 36,
+            "position": { "from": "self", "y": 0.2 }
+        },
+        {
+            "type": "creraces:play_sound",
+            "sound": "minecraft:entity.warden.sonic_boom",
+            "volume": 0.8,
+            "pitch": 1.6
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 15,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:apply_velocity", "mode": "pull", "strength": 1.4, "y": 0.3 }
+                    ],
+                    "shape": "circle",
+                    "height": 4,
+                    "condition": {
+                        "type": "creraces:not",
+                        "condition": { "type": "creraces:distance", "radius": 6 }
+                    }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:end_rod",
+                    "count": 72,
+                    "shape": "circle",
+                    "radius": 12,
+                    "points": 72,
+                    "position": { "from": "self", "y": 0.2 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.warden.sonic_boom",
+                    "volume": 0.8,
+                    "pitch": 1.6
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 30,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 18,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:apply_velocity", "mode": "push", "strength": 0.4, "y": 1.4 }
+                    ],
+                    "shape": "circle",
+                    "height": 4,
+                    "condition": {
+                        "type": "creraces:not",
+                        "condition": { "type": "creraces:distance", "radius": 12 }
+                    }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:end_rod",
+                    "count": 108,
+                    "shape": "circle",
+                    "radius": 18,
+                    "points": 108,
+                    "position": { "from": "self", "y": 0.2 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.warden.sonic_boom",
+                    "volume": 0.8,
+                    "pitch": 1.6
+                }
+            ]
+        }
+    ]
+}

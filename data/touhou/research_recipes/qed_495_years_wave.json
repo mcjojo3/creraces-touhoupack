@@ -1,0 +1,12 @@
+{
+  "ability": "touhou:qed_495_years_wave",
+  "level": 1,
+  "pattern": [
+    { "q": -2, "r":  1, "essence": "light" },
+    { "q": -1, "r":  0, "essence": "light" },
+    { "q":  0, "r":  0, "essence": "arcane" },
+    { "q":  1, "r": -1, "essence": "arcane" },
+    { "q":  2, "r": -1, "essence": "void" },
+    { "q":  3, "r": -2, "essence": "void" }
+  ]
+}

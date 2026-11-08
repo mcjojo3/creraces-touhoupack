@@ -1,0 +1,335 @@
+{
+    "creraces:name": "ability.touhou.laevateinn.name",
+    "creraces:description": "ability.touhou.laevateinn.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:textures/item/blaze_rod.png",
+    "creraces:cooldown": 120,
+    "creraces:cost": 60,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:actions": [
+        {
+            "type": "creraces:play_sound",
+            "sound": "minecraft:entity.player.attack.sweep",
+            "volume": 1,
+            "pitch": 0.5
+        },
+        { "type": "creraces:play_sound", "sound": "minecraft:item.firecharge.use", "volume": 1, "pitch": 0.6 },
+        {
+            "type": "creraces:beam",
+            "range": 9,
+            "radius": 1.5,
+            "yaw": -60,
+            "actions": [
+                {
+                    "type": "creraces:damage",
+                    "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                },
+                { "type": "creraces:set_on_fire", "duration": 100 }
+            ]
+        },
+        {
+            "type": "creraces:spawn_particles",
+            "particle": "minecraft:flame",
+            "count": 24,
+            "shape": "line",
+            "length": 9,
+            "points": 12,
+            "yaw": -60,
+            "position": { "from": "self", "y": 0.8 }
+        },
+        {
+            "type": "creraces:spawn_particles",
+            "particle": "minecraft:lava",
+            "count": 2,
+            "shape": "line",
+            "length": 9,
+            "points": 2,
+            "yaw": -60,
+            "position": { "from": "self", "y": 0.8 }
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 1,
+            "actions": [
+                {
+                    "type": "creraces:beam",
+                    "range": 9,
+                    "radius": 1.5,
+                    "yaw": -45,
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:set_on_fire", "duration": 100 }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:flame",
+                    "count": 24,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 12,
+                    "yaw": -45,
+                    "position": { "from": "self", "y": 0.8 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 2,
+            "actions": [
+                {
+                    "type": "creraces:beam",
+                    "range": 9,
+                    "radius": 1.5,
+                    "yaw": -30,
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:set_on_fire", "duration": 100 }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:flame",
+                    "count": 24,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 12,
+                    "yaw": -30,
+                    "position": { "from": "self", "y": 0.8 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:lava",
+                    "count": 2,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 2,
+                    "yaw": -30,
+                    "position": { "from": "self", "y": 0.8 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 3,
+            "actions": [
+                {
+                    "type": "creraces:beam",
+                    "range": 9,
+                    "radius": 1.5,
+                    "yaw": -15,
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:set_on_fire", "duration": 100 }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:flame",
+                    "count": 24,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 12,
+                    "yaw": -15,
+                    "position": { "from": "self", "y": 0.8 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 4,
+            "actions": [
+                {
+                    "type": "creraces:beam",
+                    "range": 9,
+                    "radius": 1.5,
+                    "yaw": 0,
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:set_on_fire", "duration": 100 }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:flame",
+                    "count": 24,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 12,
+                    "yaw": 0,
+                    "position": { "from": "self", "y": 0.8 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:lava",
+                    "count": 2,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 2,
+                    "yaw": 0,
+                    "position": { "from": "self", "y": 0.8 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 5,
+            "actions": [
+                {
+                    "type": "creraces:beam",
+                    "range": 9,
+                    "radius": 1.5,
+                    "yaw": 15,
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:set_on_fire", "duration": 100 }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:flame",
+                    "count": 24,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 12,
+                    "yaw": 15,
+                    "position": { "from": "self", "y": 0.8 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 6,
+            "actions": [
+                {
+                    "type": "creraces:beam",
+                    "range": 9,
+                    "radius": 1.5,
+                    "yaw": 30,
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:set_on_fire", "duration": 100 }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:flame",
+                    "count": 24,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 12,
+                    "yaw": 30,
+                    "position": { "from": "self", "y": 0.8 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:lava",
+                    "count": 2,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 2,
+                    "yaw": 30,
+                    "position": { "from": "self", "y": 0.8 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 7,
+            "actions": [
+                {
+                    "type": "creraces:beam",
+                    "range": 9,
+                    "radius": 1.5,
+                    "yaw": 45,
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:set_on_fire", "duration": 100 }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:flame",
+                    "count": 24,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 12,
+                    "yaw": 45,
+                    "position": { "from": "self", "y": 0.8 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 8,
+            "actions": [
+                {
+                    "type": "creraces:beam",
+                    "range": 9,
+                    "radius": 1.5,
+                    "yaw": 60,
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 10, "scales_with": "creraces:ability_power", "factor": 0.1 }
+                        },
+                        { "type": "creraces:set_on_fire", "duration": 100 }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:flame",
+                    "count": 24,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 12,
+                    "yaw": 60,
+                    "position": { "from": "self", "y": 0.8 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:lava",
+                    "count": 2,
+                    "shape": "line",
+                    "length": 9,
+                    "points": 2,
+                    "yaw": 60,
+                    "position": { "from": "self", "y": 0.8 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 4,
+            "actions": [
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.blaze.shoot",
+                    "volume": 1,
+                    "pitch": 0.8
+                }
+            ]
+        }
+    ]
+}

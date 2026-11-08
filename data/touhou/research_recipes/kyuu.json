@@ -1,0 +1,13 @@
+{
+  "ability": "touhou:kyuu",
+  "level": 1,
+  "pattern": [
+    { "q":  0, "r":  0, "essence": "void" },
+    { "q":  1, "r":  0, "essence": "void" },
+    { "q": -1, "r":  0, "essence": "void" },
+    { "q":  0, "r":  1, "essence": "dark" },
+    { "q":  0, "r": -1, "essence": "dark" },
+    { "q":  1, "r": -1, "essence": "fire" },
+    { "q": -1, "r":  1, "essence": "fire" }
+  ]
+}

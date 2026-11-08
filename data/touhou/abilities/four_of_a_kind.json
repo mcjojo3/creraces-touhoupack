@@ -1,0 +1,61 @@
+{
+    "creraces:name": "ability.touhou.four_of_a_kind.name",
+    "creraces:description": "ability.touhou.four_of_a_kind.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:textures/item/totem_of_undying.png",
+    "creraces:cooldown": 1800,
+    "creraces:cost": 300,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:copied_by_clones": false,
+    "creraces:actions": [
+        {
+            "type": "creraces:summon_clones",
+            "center": { "from": "self", "forward": 3 },
+            "duration": 400,
+            "health": 10,
+            "copy_abilities": true,
+            "copy_attacks": true,
+            "damage_multiplier": 0.5,
+            "distract": true,
+            "clones": [{ "rotation": 90 }, { "rotation": 180 }, { "rotation": 270 }],
+            "on_break": [
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 30,
+                    "spread": 0.5,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:block.glass.break",
+                    "volume": 1,
+                    "pitch": 1.2,
+                    "position": { "from": "self" }
+                }
+            ],
+            "on_expire": [
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 15,
+                    "spread": 0.4,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:spawn_particles",
+            "particle": "minecraft:enchanted_hit",
+            "count": 30,
+            "spread": 1,
+            "position": { "from": "self", "y": 1 }
+        },
+        {
+            "type": "creraces:play_sound",
+            "sound": "minecraft:entity.illusioner.mirror_move",
+            "volume": 1,
+            "pitch": 1
+        }
+    ]
+}

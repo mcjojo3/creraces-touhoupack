@@ -1,0 +1,80 @@
+{
+    "creraces:name": "ability.touhou.vampire_bite.name",
+    "creraces:description": "ability.touhou.vampire_bite.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:textures/item/redstone.png",
+    "creraces:cooldown": 120,
+    "creraces:cost": 30,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:actions": [
+        {
+            "type": "creraces:raycast",
+            "range": 8,
+            "fail_if_empty": true,
+            "actions": [
+                { "type": "creraces:dash", "direction": "toward_target", "strength": 1.3 },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.bat.takeoff",
+                    "volume": 0.8,
+                    "pitch": 1.4
+                },
+                {
+                    "type": "creraces:delay",
+                    "duration": 6,
+                    "actions": [
+                        {
+                            "type": "creraces:conditional",
+                            "condition": { "type": "creraces:distance", "radius": 3 },
+                            "if_true": [
+                                {
+                                    "type": "creraces:damage",
+                                    "amount": {
+                                        "base": 8,
+                                        "scales_with": "creraces:ability_power",
+                                        "factor": 0.08
+                                    }
+                                },
+                                {
+                                    "type": "creraces:heal",
+                                    "amount": {
+                                        "base": 8,
+                                        "scales_with": "creraces:ability_power",
+                                        "factor": 0.08
+                                    },
+                                    "entity": "self"
+                                },
+                                {
+                                    "type": "creraces:apply_effect",
+                                    "effect": "creraces:bleeding",
+                                    "duration": 100,
+                                    "amplifier": 1
+                                },
+                                {
+                                    "type": "creraces:spawn_particles",
+                                    "particle": "minecraft:damage_indicator",
+                                    "count": 8,
+                                    "spread": 0.3,
+                                    "position": { "from": "target", "y": 1 }
+                                },
+                                {
+                                    "type": "creraces:spawn_particles",
+                                    "particle": "minecraft:crimson_spore",
+                                    "count": 15,
+                                    "spread": 0.4,
+                                    "position": { "from": "target", "y": 1 }
+                                },
+                                {
+                                    "type": "creraces:play_sound",
+                                    "sound": "minecraft:entity.generic.drink",
+                                    "volume": 1,
+                                    "pitch": 0.6
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

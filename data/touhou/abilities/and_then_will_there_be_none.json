@@ -1,0 +1,365 @@
+{
+    "creraces:name": "ability.touhou.and_then_will_there_be_none.name",
+    "creraces:description": "ability.touhou.and_then_will_there_be_none.description",
+    "creraces:type": "active",
+    "creraces:icon": "minecraft:textures/item/ender_eye.png",
+    "creraces:cooldown": 2400,
+    "creraces:cost": 400,
+    "creraces:race": ["touhou:flandre"],
+    "creraces:actions": [
+        {
+            "type": "creraces:apply_effect",
+            "effect": "creraces:true_invisibility",
+            "duration": 100,
+            "amplifier": 0,
+            "visible": false
+        },
+        {
+            "type": "creraces:apply_effect",
+            "effect": "creraces:invulnerability",
+            "duration": 100,
+            "amplifier": 0,
+            "visible": false
+        },
+        {
+            "type": "creraces:spawn_particles",
+            "particle": "minecraft:large_smoke",
+            "count": 30,
+            "spread": 0.6,
+            "position": { "from": "self", "y": 1 }
+        },
+        {
+            "type": "creraces:play_sound",
+            "sound": "minecraft:entity.illusioner.mirror_move",
+            "volume": 1,
+            "pitch": 0.5
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 10,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 20,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 30,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 40,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 50,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 60,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 70,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 80,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 90,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 12,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 4, "scales_with": "creraces:ability_power", "factor": 0.04 }
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:crimson_spore",
+                    "count": 40,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:enchanted_hit",
+                    "count": 20,
+                    "shape": "disc",
+                    "radius": 12,
+                    "position": { "from": "self", "y": 1 }
+                }
+            ]
+        },
+        {
+            "type": "creraces:delay",
+            "duration": 100,
+            "actions": [
+                {
+                    "type": "creraces:aoe",
+                    "radius": 8,
+                    "targets": ["enemies"],
+                    "actions": [
+                        {
+                            "type": "creraces:damage",
+                            "amount": { "base": 20, "scales_with": "creraces:ability_power", "factor": 0.2 },
+                            "damage_type": "minecraft:magic"
+                        }
+                    ]
+                },
+                {
+                    "type": "creraces:spawn_particles",
+                    "particle": "minecraft:explosion_emitter",
+                    "count": 1,
+                    "position": { "from": "self", "y": 1 }
+                },
+                {
+                    "type": "creraces:play_sound",
+                    "sound": "minecraft:entity.generic.explode",
+                    "volume": 1.5,
+                    "pitch": 0.8
+                }
+            ]
+        }
+    ]
+}
